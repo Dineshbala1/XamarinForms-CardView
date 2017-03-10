@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xamarin.Forms_CardView"
+             xmlns:view="clr-namespace:Xamarin.Forms_CardView.View;assembly=Xamarin.Forms_CardView"
+             xmlns:viewModel="clr-namespace:Xamarin.Forms_CardView.ViewModel;assembly=Xamarin.Forms_CardView"
+             x:Class="Xamarin.Forms_CardView.MainPage"
+             Title="CardView-Demo">
+  <ContentPage.BindingContext>
+    <viewModel:CardDataViewModel/>
+  </ContentPage.BindingContext>
+
+  <StackLayout Orientation="Vertical">
+    <Label Text="Xamarin Forms CardView Demo"
+             VerticalOptions="Start"
+             HorizontalTextAlignment="Center"
+             VerticalTextAlignment="Center"
+             BackgroundColor="Transparent"
+             HorizontalOptions="CenterAndExpand" />
+    <ListView x:Name="listView" SelectedItem="{Binding SelcetedItem,Mode=TwoWay}" 
+              RowHeight="120" 
+              ItemsSource="{Binding CardDataCollection}" >
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <view:CardViewTemplate/>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
